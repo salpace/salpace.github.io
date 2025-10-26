@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#0b0e14" />
   <meta name="robots" content="index,follow" />
 
-  <!-- Social cards -->
+  <!-- Social cards (optional but helpful) -->
   <meta property="og:title" content="Sal Pace — Theoretical Physicist">
   <meta property="og:description" content="Theoretical physicist studying quantum phases, symmetries, and anomalies.">
   <meta property="og:type" content="website">
@@ -22,9 +22,8 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Ψ</text></svg>">
   <link rel="preload" as="image" href="img/e4f0dc31-d100-4286-9401-c11cf5b39644.jpg" imagesizes="(max-width: 900px) 90vw, 360px">
 
-  <!-- Basic, self-contained styles: responsive, accessible, and elegant -->
   <style>
-    /* -------- CSS Reset & base -------- */
+    /* -------- Base / reset -------- */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -38,6 +37,9 @@
       text-rendering: optimizeLegibility;
       accent-color: var(--accent);
     }
+    img { max-width: 100%; display: block; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; color: var(--link-hover); }
 
     :root {
       /* Dark theme defaults */
@@ -46,8 +48,8 @@
       --muted: #a8b3c6;
       --card: rgba(255,255,255,0.06);
       --card-border: rgba(255,255,255,0.08);
-      --accent: #8da2fb; /* indigo */
-      --accent-2: #45d483; /* green */
+      --accent: #8da2fb;
+      --accent-2: #45d483;
       --link: var(--accent);
       --link-hover: #a3b3ff;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -55,8 +57,6 @@
       --maxw: 1100px;
       --focus: #7aa2ff;
     }
-
-    /* Respect system preference (baseline when in Auto mode) */
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #fcfcfd;
@@ -68,83 +68,63 @@
         --accent-2: #0e9f6e;
         --link: #3342f0;
         --link-hover: #1a2cf2;
-        --shadow: 0 12px 24px rgba(26, 31, 44, .08);
+        --shadow: 0 12px 24px rgba(26,31,44,.08);
         --focus: #3342f0;
       }
     }
+    :root[data-theme='light'] { color-scheme: light; }
+    :root[data-theme='dark']  { color-scheme: dark; }
 
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-      html { scroll-behavior: auto; }
-    }
-
-    a { color: var(--link); text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; color: var(--link-hover); }
-    img { max-width: 100%; display: block; }
-
-    /* Better focus visibility */
-    :where(a, button, [role="button"], .btn):focus-visible {
+    /* Focus visibility */
+    :where(a, button, [role="button"], .btn, .theme-toggle, .menu-toggle):focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 3px;
       border-radius: 10px;
     }
 
-    /* -------- Layout -------- */
-    .wrap {
-      max-width: var(--maxw);
-      margin-inline: auto;
-      padding: 24px clamp(20px, 5vw, 40px);
-    }
+    /* Layout wrapper */
+    .wrap { max-width: var(--maxw); margin-inline: auto; padding: 24px clamp(20px, 5vw, 40px); }
 
+    /* Header / hero */
     header.site-header {
       position: relative;
       overflow: hidden;
-      padding-block: min(16vh, 120px);
+      padding-block: clamp(48px, 12vh, 120px);
       background:
-        radial-gradient(1200px 600px at 85% -10%, rgba(99, 102, 241, .35), transparent 60%),
-        radial-gradient(800px 400px at -10% 20%, rgba(34, 197, 94, .25), transparent 60%);
+        radial-gradient(1200px 600px at 85% -10%, rgba(99,102,241,.35), transparent 60%),
+        radial-gradient(800px 400px at -10% 20%, rgba(34,197,94,.25), transparent 60%);
       border-bottom: 1px solid var(--card-border);
     }
 
+    /* Navigation */
     .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: nowrap;
     }
-
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: clamp(20px, 2.2vw, 24px);
-      letter-spacing: .2px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: clamp(20px, 2.2vw, 24px); letter-spacing: .2px;
     }
-
     .brand-mark {
-      display: inline-grid;
-      place-items: center;
-      inline-size: 38px;
-      block-size: 38px;
-      border-radius: 50%;
+      display: inline-grid; place-items: center;
+      inline-size: 38px; block-size: 38px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      font-weight: 800;
-      box-shadow: var(--shadow);
+      color: white; font-weight: 800; box-shadow: var(--shadow);
       user-select: none;
     }
-
+    .menu-toggle {
+      display: none; /* shown on narrow screens */
+      border: 1px solid var(--card-border);
+      border-radius: 12px; background: var(--card);
+      padding: 8px 12px; display: none; align-items: center; gap: 8px; cursor: pointer; font-weight: 600;
+    }
+    .menu-toggle svg { inline-size: 18px; block-size: 18px; }
     .nav ul {
       list-style: none; margin: 0; padding: 0;
-      display: flex; gap: clamp(14px, 2.4vw, 28px);
-      align-items: center;
-      flex-wrap: wrap;
+      display: flex; gap: clamp(14px, 2.4vw, 28px); align-items: center;
     }
     .nav a.nav-link { font-weight: 600; opacity: .9; }
     .nav a.nav-link:hover { opacity: 1; text-decoration: none; }
-
     .theme-toggle {
       border: 1px solid var(--card-border);
       border-radius: 999px;
@@ -156,62 +136,76 @@
     }
     .theme-toggle svg { inline-size: 18px; block-size: 18px; }
 
-    /* -------- Hero -------- */
+    /* Mobile nav behavior */
+    @media (max-width: 760px) {
+      .menu-toggle { display: inline-flex; margin-left: auto; }
+      .nav { align-items: center; }
+      .nav ul {
+        display: none; width: 100%;
+        padding-top: 12px; margin-top: 8px;
+        border-top: 1px solid var(--card-border);
+      }
+      .nav[data-open="true"] ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 12px;
+      }
+      .nav[data-open="true"] ul > li { display: contents; }
+      .nav[data-open="true"] .nav-link,
+      .nav[data-open="true"] .theme-toggle {
+        display: block; text-align: center;
+        border: 1px solid var(--card-border);
+        background: var(--card);
+        border-radius: 12px;
+        padding: 10px 12px;
+      }
+    }
+
+    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
       gap: clamp(28px, 6vw, 56px);
       align-items: center;
-      margin-top: clamp(26px, 4vh, 46px);
+      margin-top: clamp(20px, 4vh, 46px);
     }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
     .headline {
       font-size: clamp(28px, 4.6vw, 48px);
-      line-height: 1.1;
-      margin: 0 0 16px 0;
-      font-weight: 800;
-      letter-spacing: .2px;
+      line-height: 1.1; margin: 0 0 16px 0; font-weight: 800; letter-spacing: .2px;
+      text-wrap: balance;
     }
-    .subtitle {
-      font-size: clamp(16px, 2.2vw, 19px);
-      color: var(--muted);
-      margin: 0 0 22px 0;
-    }
-    .cta-row {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      margin-top: 16px;
-    }
+    .subtitle { font-size: clamp(16px, 2.2vw, 19px); color: var(--muted); margin: 0 0 22px 0; }
+    .meta { display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); }
+    .meta b { color: var(--text); }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
     .btn {
-      --btn-bg: var(--accent);
-      --btn-fg: white;
+      --btn-bg: var(--accent); --btn-fg: white;
       display: inline-flex; align-items: center; gap: 10px;
       padding: 12px 16px; border-radius: 12px;
       background: var(--btn-bg); color: var(--btn-fg);
-      border: 1px solid transparent;
-      font-weight: 700; letter-spacing: .2px;
+      border: 1px solid transparent; font-weight: 700; letter-spacing: .2px;
       box-shadow: var(--shadow);
       transition: transform .12s ease, box-shadow .2s ease, opacity .2s ease;
       line-height: 1.2;
     }
     .btn:hover { transform: translateY(-1px); text-decoration: none; }
     .btn.secondary {
-      --btn-bg: var(--card);
-      --btn-fg: var(--text);
-      border-color: var(--card-border);
-      box-shadow: none;
+      --btn-bg: var(--card); --btn-fg: var(--text);
+      border-color: var(--card-border); box-shadow: none;
     }
-    /* Small variant just for compact actions like "Copy" */
-    .btn.sm {
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      gap: 6px;
+    .btn.sm { padding: 6px 10px; border-radius: 999px; font-size: .85rem; font-weight: 600; gap: 6px; }
+
+    /* Make CTA buttons tidy on phones */
+    @media (max-width: 760px) {
+      .cta-row .btn { flex: 1 1 48%; min-width: 140px; justify-content: center; }
+    }
+    @media (max-width: 400px) {
+      .cta-row .btn { flex: 1 1 100%; }
     }
 
-    /* -------- Card sections -------- */
+    /* Sections & cards */
     section {
       padding-block: clamp(40px, 9vh, 90px);
       border-bottom: 1px solid var(--card-border);
@@ -220,95 +214,75 @@
         radial-gradient(400px 140px at -10% 100%, rgba(69,212,131,.12), transparent 70%);
       background-repeat: no-repeat;
     }
-    .section-title {
-      font-size: clamp(20px, 2.8vw, 28px);
-      margin: 0 0 18px 0;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
+    .section-title { font-size: clamp(20px, 2.8vw, 28px); margin: 0 0 18px 0; font-weight: 800; letter-spacing: .2px; }
     .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: clamp(18px, 3.6vw, 28px);
-      box-shadow: var(--shadow);
+      background: var(--card); border: 1px solid var(--card-border);
+      border-radius: var(--radius); padding: clamp(18px, 3.6vw, 28px); box-shadow: var(--shadow);
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: clamp(14px, 2vw, 22px);
-    }
-    .col-6 { grid-column: span 6; }
-    .col-12 { grid-column: span 12; }
-
-    @media (max-width: 900px) {
-      .col-6 { grid-column: span 12; }
-    }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 2vw, 22px); }
+    .col-6 { grid-column: span 6; } .col-12 { grid-column: span 12; }
+    @media (max-width: 900px) { .col-6 { grid-column: span 12; } }
 
     ul.clean { margin: 0; padding-left: 1.1em; }
     ul.clean li { margin-block: 8px; }
 
-    /* -------- Profile / portrait -------- */
+    /* Portrait */
     .portrait {
       inline-size: min(360px, 100%);
-      aspect-ratio: 1/1;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow);
-      transform: translateZ(0);
-      background: var(--card);
+      aspect-ratio: 1/1; border-radius: 24px; overflow: hidden;
+      border: 1px solid var(--card-border); box-shadow: var(--shadow);
+      transform: translateZ(0); background: var(--card);
+      margin-inline: auto; /* centers on mobile */
     }
-    .portrait img {
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
-      user-select: none;
-    }
+    .portrait img { inline-size: 100%; block-size: 100%; object-fit: cover; user-select: none; }
 
-    .meta {
-      display: flex; gap: 14px; flex-wrap: wrap;
-      color: var(--muted);
-    }
-    .meta b { color: var(--text); }
+    /* Footer */
+    footer { padding: 28px 0 60px; color: var(--muted); }
 
-    footer {
-      padding: 28px 0 60px;
-      color: var(--muted);
-    }
-
-    .skip, .sr-only {
-      position: absolute; left: -9999px; top: auto;
-      width: 1px; height: 1px; overflow: hidden;
-    }
+    /* Skip link + sr-only */
+    .skip, .sr-only { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
     .skip:focus { position: static; width: auto; height: auto; }
 
-    /* Anchor offset */
     :target { scroll-margin-top: 80px; }
+
+    /* Explicit theme overrides after media query */
+    :root[data-theme='light'] {
+      --bg: #fcfcfd; --text: #0b1220; --muted: #5b6472; --card: #fff; --card-border: #eaedf2;
+      --accent: #5850ec; --accent-2: #0e9f6e; --link: #3342f0; --link-hover: #1a2cf2;
+      --shadow: 0 12px 24px rgba(26,31,44,.08); --focus: #3342f0;
+    }
+    :root[data-theme='dark'] {
+      --bg: #0b0e14; --text: #e8ecf1; --muted: #a8b3c6; --card: rgba(255,255,255,.06); --card-border: rgba(255,255,255,.08);
+      --accent: #8da2fb; --accent-2: #45d483; --link: var(--accent); --link-hover: #a3b3ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35); --focus: #7aa2ff;
+    }
+
+    /* Print */
+    @media print {
+      header.site-header { background: none; padding: 16px 0; }
+      .menu-toggle, .theme-toggle, .btn, nav .nav-link[href^="#"] { display: none !important; }
+      section { background: none; box-shadow: none; }
+      .portrait { border: none; box-shadow: none; }
+    }
   </style>
 
-  <!-- Theme system: Auto / Dark / Light -->
+  <!-- Theme: tri-state (Auto/Dark/Light) + Mobile menu JS -->
   <script>
     (function() {
       const STORAGE_KEY = 'theme-mode'; // 'auto' | 'dark' | 'light'
-      const META = () => document.querySelector('meta[name="theme-color"]');
       const prefersDark = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const meta = () => document.querySelector('meta[name="theme-color"]');
 
       function setMetaColor(mode) {
-        const m = META();
-        if (!m) return;
+        const m = meta(); if (!m) return;
         const isLight = mode === 'light' || (mode === 'auto' && !prefersDark());
         m.setAttribute('content', isLight ? '#fcfcfd' : '#0b0e14');
       }
-
       function apply(mode) {
-        if (mode === 'dark' || mode === 'light') {
-          document.documentElement.dataset.theme = mode;
-        } else {
-          document.documentElement.removeAttribute('data-theme'); // auto -> use @media baseline
-        }
+        if (mode === 'dark' || mode === 'light') document.documentElement.dataset.theme = mode;
+        else document.documentElement.removeAttribute('data-theme'); // auto
         setMetaColor(mode);
-        try { localStorage.setItem(STORAGE_KEY, mode); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY, mode); } catch(e) {}
         const label = document.getElementById('theme-label');
         const btn = document.getElementById('theme-btn');
         if (label) label.textContent = mode[0].toUpperCase() + mode.slice(1);
@@ -316,75 +290,47 @@
         const announcer = document.getElementById('a11y-announcer');
         if (announcer) announcer.textContent = 'Theme set to ' + mode + '.';
       }
-
-      function init() {
+      function cycleTheme() {
+        const cur = (document.documentElement.dataset.theme || 'auto');
+        const next = cur === 'dark' ? 'light' : (cur === 'light' ? 'auto' : 'dark');
+        apply(next);
+      }
+      function initTheme() {
         let saved = null;
-        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
         const initial = (saved === 'dark' || saved === 'light' || saved === 'auto') ? saved : 'auto';
         apply(initial);
-        // Keyboard shortcut: press "t" to cycle theme
         window.addEventListener('keydown', (e) => {
           if (e.key.toLowerCase() === 't' && !e.altKey && !e.ctrlKey && !e.metaKey) {
-            e.preventDefault();
-            cycle();
+            e.preventDefault(); cycleTheme();
+          }
+        });
+        window.__cycleTheme = cycleTheme;
+      }
+
+      function initMenu() {
+        const nav = document.querySelector('nav.nav');
+        const btn = document.getElementById('menu-toggle');
+        if (!nav || !btn) return;
+        btn.addEventListener('click', () => {
+          const open = nav.getAttribute('data-open') === 'true';
+          nav.setAttribute('data-open', open ? 'false' : 'true');
+          btn.setAttribute('aria-expanded', String(!open));
+        });
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            nav.setAttribute('data-open', 'false');
+            btn.setAttribute('aria-expanded', 'false');
           }
         });
       }
 
-      function cycle() {
-        const cur = (document.documentElement.dataset.theme || 'auto');
-        const mode = cur === 'dark' ? 'light' : (cur === 'light' ? 'auto' : 'dark');
-        apply(mode);
-      }
-
-      // Expose cycle to button
-      window.__cycleTheme = cycle;
-      document.addEventListener('DOMContentLoaded', init);
+      document.addEventListener('DOMContentLoaded', () => { initTheme(); initMenu(); });
     })();
   </script>
 
-  <!-- Explicit theme overrides placed after media query so they win when set -->
-  <style>
-    :root[data-theme='light'] { color-scheme: light; }
-    :root[data-theme='dark']  { color-scheme: dark; }
-
-    :root[data-theme='light'] {
-      --bg: #fcfcfd;
-      --text: #0b1220;
-      --muted: #5b6472;
-      --card: #ffffff;
-      --card-border: #eaedf2;
-      --accent: #5850ec;
-      --accent-2: #0e9f6e;
-      --link: #3342f0;
-      --link-hover: #1a2cf2;
-      --shadow: 0 12px 24px rgba(26, 31, 44, .08);
-      --focus: #3342f0;
-    }
-    :root[data-theme='dark'] {
-      --bg: #0b0e14;
-      --text: #e8ecf1;
-      --muted: #a8b3c6;
-      --card: rgba(255,255,255,0.06);
-      --card-border: rgba(255,255,255,0.08);
-      --accent: #8da2fb;
-      --accent-2: #45d483;
-      --link: var(--accent);
-      --link-hover: #a3b3ff;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --focus: #7aa2ff;
-    }
-
-    /* Print styling */
-    @media print {
-      header.site-header { background: none; padding: 16px 0; }
-      .btn, .theme-toggle, nav .nav-link[href^="#"] { display: none !important; }
-      .portrait { border: none; box-shadow: none; }
-      section { background: none; box-shadow: none; }
-    }
-  </style>
-
-  <!-- Structured data to help search engines -->
+  <!-- JSON-LD (unchanged) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -406,7 +352,6 @@
   <a class="skip" href="#content">Skip to content</a>
   <span id="a11y-announcer" class="sr-only" aria-live="polite"></span>
 
-  <!-- ===== Top navigation ===== -->
   <header class="site-header">
     <div class="wrap">
       <nav class="nav" aria-label="Primary">
@@ -414,21 +359,29 @@
           <span class="brand-mark" aria-hidden="true">Ψ</span>
           <span>Sal&nbsp;Pace</span>
         </div>
-        <ul>
+
+        <!-- Mobile menu toggle (shown under 760px) -->
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" title="Menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+          </svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu">
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#research">Research</a></li>
           <li><a class="nav-link" href="#links">Links</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
           <li>
             <button id="theme-btn" class="theme-toggle" type="button" onclick="window.__cycleTheme()" aria-label="Theme: auto" title="Theme (press T)">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v1.05a7 7 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v1.05a7 7 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 8z"/></svg>
               <span id="theme-label">Auto</span>
             </button>
           </li>
         </ul>
       </nav>
 
-      <!-- ===== Hero ===== -->
       <div id="about" class="hero">
         <div>
           <h1 class="headline">Theoretical physicist studying quantum physics, symmetries, and anomalies.</h1>
@@ -444,17 +397,14 @@
 
           <div class="cta-row" style="margin-top:20px">
             <a class="btn" href="Salvatore_Pace_CV.pdf" target="_blank" rel="noopener noreferrer" title="Open CV">
-              <!-- file icon -->
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L18.5 9H14z"/></svg>
               <span>CV</span>
             </a>
             <a class="btn secondary" href="https://scholar.google.com/citations?user=pAwQrwEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-              <!-- link icon -->
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M10 13a5 5 0 0 1 0-7l2-2a5 5 0 1 1 7 7l-1 1-1.4-1.4 1-1a3 3 0 0 0-4.2-4.2l-2 2A3 3 0 1 0 10 11h2a1 1 0 0 1 0 2zm4 0a5 5 0 0 1 0 7l-2 2a5 5 0 0 1-7-7l1-1 1.4 1.4-1 1a3 3 0 0 0 4.2 4.2l2-2A3 3 0 0 0 16 13z"/></svg>
               <span>Google Scholar</span>
             </a>
             <a class="btn secondary" href="#contact">
-              <!-- mail icon -->
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2l-10 6L2 6zm0 2.2 9.4 5.64a1 1 0 0 0 1.2 0L22 8.2V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg>
               <span>Email</span>
             </a>
@@ -473,7 +423,6 @@
 
   <main id="content" class="wrap" role="main" aria-label="Main content">
 
-    <!-- ===== Research overview ===== -->
     <section id="research">
       <h2 class="section-title">Research</h2>
 
@@ -518,7 +467,6 @@
       </div>
     </section>
 
-    <!-- ===== Links ===== -->
     <section id="links">
       <h2 class="section-title">Links</h2>
       <div class="grid">
@@ -539,7 +487,6 @@
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="card">
