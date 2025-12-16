@@ -1,53 +1,819 @@
 <!DOCTYPE html>
-<html>
 
-<style type="text/css">
-        <!--
-        .style1 {
-                font-size: 28px;
-                font-weight: bold;
-        }
-        -->
-        
-    </style>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="Salvatore D. Pace (Sal Pace) — theoretical physicist. Quantum lattice models, quantum field theory, generalized symmetries &amp; anomalies, and phases of quantum matter." name="description"/>
+<meta content="Salvatore D. Pace" name="author"/>
+<meta content="#0b0b0f" name="theme-color"/>
+<title>Salvatore D. Pace — Physics</title>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/styles.css" rel="stylesheet"/>
+<style>
+  /* Collapsible "show more / show less" support */
+  .js-collapsed { display: none !important; }
+  /* Ensure the HTML [hidden] attribute always removes elements from layout */
+  [hidden] { display: none !important; }
+  .show-toggle-btn { margin-top: 14px; }
+
+  /* Reduce extra space above the talks toggle button by trimming the last visible talk list */
+  #talks .talk-list.is-last-visible {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Also trim the last visible talk item so the toggle gap matches the Papers section */
+  #talks .talk-item.is-last-visible-item {
+    margin-bottom: 0 !important;
+  }
+
+  /* 1) Left-align the top navigation links */
+  /* Force the nav links to sit flush-left with the page content.
+     (ID-based selectors so this reliably overrides rules in assets/styles.css.) */
+  @media (min-width: 720px) {
+    header.site-header .wrap.header-inner {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      gap: 14px !important;
+    }
+
+    /* The template's "brand" block is empty; remove it so the first link starts at the left edge. */
+    header.site-header .wrap.header-inner > .brand {
+      display: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 0 !important;
+    }
+
+    header.site-header .wrap.header-inner > nav#nav {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      /* Override any centering / absolute positioning from the base stylesheet */
+      position: static !important;
+      inset: auto !important;
+      transform: none !important;
+    }
+
+    header.site-header .wrap.header-inner > .header-actions {
+      margin-left: auto !important;
+    }
+  }
+
+  /* 2) Remove theme toggle UI (dark is permanent) */
+  #themeBtn { display: none !important; }
+
+  /* 3) Let the Technical Overview paragraph span the full card width */
+  #research .prose { max-width: none !important; width: 100% !important; }
+
+  /* 3b) Stack the "Currently" and "More broadly" lists vertically (full width) */
+  #research .lists-2 { grid-template-columns: 1fr !important; }
+
+  /* 4) Remove publication/talk filter UI */
+  #publications .tools,
+  #talks .tools {
+    display: none !important;
+  }
 
 
+/* 5) Make buttons/chips clearly interactive on hover/focus */
+a.chip,
+button.chip {
+  cursor: pointer;
+}
+
+.chip {
+  transition: background-color 160ms ease,
+              border-color 160ms ease,
+              color 160ms ease,
+              box-shadow 160ms ease,
+              transform 160ms ease,
+              filter 160ms ease;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35) !important;
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+.chip:active {
+  transform: translateY(0);
+}
+
+/* Paper titles are plain text (not links). Ensure no underline on hover. */
+.pub-title,
+.pub-title:hover,
+.pub-title:focus,
+.pub-title:active {
+  text-decoration: none !important;
+  cursor: default;
+}
+</style>
+
+<script>
+    // Force permanent dark theme early to avoid flash.
+    document.documentElement.dataset.theme = "dark";
+    try { localStorage.setItem("theme", "dark"); } catch (e) {}
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sal Pace",
+    "jobTitle": "Theoretical physicist",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Massachusetts Institute of Technology"
+    },
+    "url": "https://salpace.github.io",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=pAwQrwEAAAAJ&hl=en"
+    ]
+  }
+  </script>
+</head>
 <body>
-
-<p class="style1"> Sal Pace </p>
-
-<img src="img/e4f0dc31-d100-4286-9401-c11cf5b39644.jpg" alt="me" width="312" height="250">
-
-<p> I am currently a 5th&#8208;year physics PhD student at MIT, and will be starting a postdoc at IAS in Fall 2026.<p> 
-
-<p> I am a theoretical physicist studying the rules that govern large collections of quantum particles. When many particles come together, unexpected quantum phenomena and rich mathematical structures arise. My research aims to uncover and understand these emergent features.<br />
-
-More specifically, I am interested in quantum lattice models (QLMs), quantum field theories (QFTs), and condensed matter systems. I investigate research questions through an interdisciplinary lens, drawing on ideas from condensed matter theory, high&#8208;energy theory, quantum information, and mathematics. A primary theme running through my current work is (generalized) symmetries and anomalies, which I apply to two closely related topics. The first is understanding the structural aspects of QLMs and QFTs, and how they relate to one another. This is a first step toward the larger goal of mapping out and comparing the vast landscapes of these two frameworks. The second is characterizing and classifying phases of quantum matter. This includes gapped phases&#8212;both within and beyond the framework of topological QFT&#8212;as well as gapless phases. <p> 
-
-<p> You can see my CV, <a href="Salvatore_Pace_CV.pdf"> here</a>. It includes a list of my papers and invited talks with links to the slides and recordings, if available. You can also find all of my papers on Google Scholar, <a href="https://scholar.google.com/citations?user=pAwQrwEAAAAJ&hl=en">here</a>. </p>
-
-</p>Currently, I am mostly thinking about:
-<ul>
-        <li>Lieb&#8208;Schultz&#8208;Mattis theorems from modulated symmetries</li>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<div class="brand">
+<a aria-label="Go to top" href="#about">
+</a>
+</div>
+<nav aria-label="Site navigation" class="nav" id="nav">
+<a href="#about">About</a>
+<a href="#research">Research</a>
+<a href="#publications">Papers</a>
+<a href="#talks">Talks</a>
+</nav>
+<div class="header-actions">
+<button aria-expanded="false" aria-label="Open menu" class="icon-btn menu-btn" id="menuBtn">
+<span aria-hidden="true" class="icon" id="menuIcon"></span>
+</button>
+<button aria-label="Toggle theme" class="icon-btn" id="themeBtn" hidden>
+<span aria-hidden="true" class="icon" id="themeIcon"></span>
+<span id="themeLabel">Dark</span>
+</button>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="wrap">
+<section id="about">
+<div class="card hero">
+<div class="portrait-wrap">
+<img alt="Portrait of Salvatore Pace" class="portrait" decoding="async" height="250" id="portraitImg" loading="eager" src="img/IMG_2628.jpg" width="312"/>
+<div aria-hidden="true" class="portrait-fallback" id="portraitFallback">SP</div>
+</div>
+<div>
+<h1>Sal Pace</h1>
+<p class="lede">
+              Physics PhD candidate at MIT | Incoming postdoc at IAS Princeton
+              (Fall 2026)
+            </p>
+<div class="prose" style="margin-top:16px;">
+<p>
+                I’m a theoretical physicist studying the rules that govern large collections of quantum particles. When many particles come together, unexpected quantum phenomena and mathematical structures arise. My research aims to uncover and understand these emergent features.
+              </p>
+</div>
+<div aria-label="Quick links" class="quicklinks">
+<a class="chip" href="Salvatore_Pace_CV.pdf">CV</a>
+<a class="chip" href="https://scholar.google.com/citations?user=pAwQrwEAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">Google Scholar</a>
+<a class="chip" href="mailto:sdpace4@gmail.com">Email</a>
+<button aria-label="Copy email address" class="chip" data-email='["sdpace4", "gmail", "com"]' id="copyEmailBtn" type="button">
+<span aria-hidden="true" class="icon" id="copyIcon"></span>
+                Copy email
+              </button>
+</div>
+</div>
+</div>
+</section>
+<section id="research">
+<div class="section-head">
+<h2>Technical Overview of Research</h2>
+</div>
+<div class="card" style="padding:18px;">
+  <div class="prose" style="margin-top:0px;">
+    <p>
+      I’m interested in quantum lattice models (QLMs), quantum field theories (QFTs), and condensed matter systems. I investigate research questions through an interdisciplinary lens, drawing on ideas from condensed matter theory, high‑energy theory, quantum information, and mathematics. A primary theme running through my current work is (generalized) symmetries and anomalies, which I apply to two closely related topics. The first is understanding the structural aspects of QLMs and QFTs, and how they relate to one another. This is a first step toward the larger goal of mapping out and comparing the vast landscapes of these two frameworks. The second is characterizing and classifying phases of quantum matter. This includes gapped phases—both within and beyond the framework of topological QFT—as well as gapless phases.
+    </p>
+    <p>
+      The types of things I am thinking about and working on are:
+    </p>
+  </div>
+  <div class="lists-2">
+    <div>
+      <h3 style="margin:0 0 6px; font-size:16px;">Currently</h3>
+      <ul class="clean">
+        <li>Lieb–Schultz–Mattis theorems from modulated symmetries</li>
         <li>New anomalies of quantum lattice models and their anomaly matching conditions</li>
-        <li>Higher&#8208;group symmetries in quantum lattice models</li>
+        <li>Higher‑group symmetries in quantum lattice models</li>
         <li>Topological melting of quantum crystals and nematics</li>
         <li>The Symmetry Topological Field Theory (SymTFT)</li>
-</ul>  
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin:0 0 6px; font-size:16px;">More broadly</h3>
+      <ul class="clean">
+        <li>Topological phases of matter and topological quantum field theory</li>
+        <li>’t Hooft anomalies, Lieb–Schultz–Mattis theorems, and their relations</li>
+        <li>Generalized symmetries and gauging in quantum lattice models</li>
+        <li>Family anomalies and generalized Thouless pumps in parametrized quantum systems</li>
+        <li>Foliated field theories, tensor gauge theories, and applications to elasticity and quantum melting</li>
+        <li>Quantum spin liquids and frustrated magnets</li>
+        <li>Applications of category and homotopy theory to physics</li>
+        <li>Applications of quantum information theory to quantum many‑body systems</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+<section id="publications">
+<div class="section-head">
+<h2>Scientific papers</h2>
+</div>
+<div class="card" style="padding:18px;">
 
-<p>More broadly, I have worked on/want to think more about:
-<ul>
-        <li>Topological phases of matter and topological quantum field theory.</li>
-        <li>&#8217;t Hooft anomalies, Lieb&#8208;Schultz&#8208;Mattis theorems, and their relations.</li>
-        <li>Generalized symmetries and gauging in quantum lattice models.</li>
-        <li>Family anomalies and generalized Thouless pumps in parametrized quantum systems.</li>
-        <li>Foliated field theories, tensor gauge theories, and applications to elasticity and quantum melting.</li>
-        <li>Quantum spin liquids and frustrated magnets.</li>
-        <li>Applications of category and homotopy theory to physics.</li>
-        <li>Applications of quantum information theory to quantum many&#8208;body systems.</li>
-</ul>  
-If your interests overlap with mine and you'd like to chat, please don't hesitate to email me at sdpace4 (at) gmail (dot) com. </p>
+<ol class="pub-list" id="pubList"><li class="pub-item">
+<div class="pub-head">
+<span class="pub-num">[18]</span>
+<span class="pub-title">Symmetry-enforced Fermi surfaces</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">M. L. Kim, S. D. Pace, and S.-H. Shao</span>
+<span class="pub-year">arXiv:2512.04150</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2512.04150" rel="noopener noreferrer" target="_blank">arXiv</a></div>
+</li><li class="pub-item" data-search="spacetime symmetry-enriched symtft: from lsm anomalies to modulated symmetries and beyond s. d. pace, ö. m. aksoy, and h. t. lam arxiv:2507.02036 2507.02036">
+<div class="pub-head">
+<span class="pub-num">[17]</span>
+<span class="pub-title">Spacetime symmetry-enriched SymTFT: from LSM anomalies to modulated symmetries and beyond</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, Ö. M. Aksoy, and H. T. Lam</span>
+<span class="pub-year">arXiv:2507.02036</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2507.02036" rel="noopener noreferrer" target="_blank">arXiv</a></div>
+</li><li class="pub-item" data-search="parity anomaly from a lieb-schultz-mattis theorem: exact valley symmetries on the lattice s. d. pace, m. l. kim, a. chatterjee, and s.-h. shao phys. rev. lett. 135 (2025) 236501 2505.04684">
+<div class="pub-head">
+<span class="pub-num">[16]</span>
+<span class="pub-title">Parity Anomaly from a Lieb-Schultz-Mattis Theorem: Exact Valley Symmetries on the Lattice</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, M. L. Kim, A. Chatterjee, and S.-H. Shao</span>
+<span class="pub-venue">Phys. Rev. Lett. 135, 236501 (2025)</span>
+<span class="pub-year">[arXiv:2505.04684]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2505.04684" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prl/abstract/10.1103/4x4w-pfgq" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="lattice t-duality from non-invertible symmetries in quantum spin chains s. d. pace, a. chatterjee, and s.-h. shao scipost phys. 18 (2025) 121 2412.18606">
+<div class="pub-head">
+<span class="pub-num">[15]</span>
+<span class="pub-title">Lattice T-duality from non-invertible symmetries in quantum spin chains</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, A. Chatterjee, and S.-H. Shao</span>
+<span class="pub-venue">SciPost Phys. 18, 121 (2025)</span>
+<span class="pub-year">[arXiv:2412.18606]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2412.18606" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://scipost.org/SciPostPhys.18.4.121" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="(spt-)lsm theorems from projective non-invertible symmetries s. d. pace, h. t. lam, and ö. m. aksoy scipost phys. 18 (2025) 028 2409.18113">
+<div class="pub-head">
+<span class="pub-num">[14]</span>
+<span class="pub-title">(SPT-)LSM theorems from projective non-invertible symmetries</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, H. T. Lam, and Ö. M. Aksoy</span>
+<span class="pub-venue">SciPost Phys. 18, 028 (2025)</span>
+<span class="pub-year">[arXiv:2409.18113]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2409.18113" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://scipost.org/SciPostPhys.18.1.028" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="quantized axial charge of staggered fermions and the chiral anomaly a. chatterjee, s. d. pace, and s.-h. shao phys. rev. lett. 134 (2025) 021601 2409.12220">
+<div class="pub-head">
+<span class="pub-num">[13]</span>
+<span class="pub-title">Quantized axial charge of staggered fermions and the chiral anomaly</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">A. Chatterjee, S. D. Pace, and S.-H. Shao</span>
+<span class="pub-venue">Phys. Rev. Lett. 134, 021601 (2025)</span>
+<span class="pub-year">[arXiv:2409.12220]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2409.12220" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.021601" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="gauging modulated symmetries: kramers-wannier dualities and non-invertible reflections s. d. pace, g. delfino, h. t. lam, and ö. m. aksoy scipost phys. 18 (2025) 021 2406.12962">
+<div class="pub-head">
+<span class="pub-num">[12]</span>
+<span class="pub-title">Gauging modulated symmetries: Kramers-Wannier dualities and non-invertible reflections</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, G. Delfino, H. T. Lam, and Ö. M. Aksoy</span>
+<span class="pub-venue">SciPost Phys. 18, 021 (2025)</span>
+<span class="pub-year">[arXiv:2406.12962]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2406.12962" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://scipost.org/SciPostPhys.18.1.021" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="topological aspects of brane fields: solitons and higher-form symmetries s. d. pace and y. l. liu scipost phys. 16 (2024) 128 2311.09293">
+<div class="pub-head">
+<span class="pub-num">[11]</span>
+<span class="pub-title">Topological aspects of brane fields: Solitons and higher-form symmetries</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace and Y. L. Liu</span>
+<span class="pub-venue">SciPost Phys. 16, 128 (2024)</span>
+<span class="pub-year">[arXiv:2311.09293]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2311.09293" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://scipost.org/SciPostPhys.16.5.128" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item">
+<div class="pub-head">
+<span class="pub-num">[10]</span>
+<span class="pub-title">Generalized symmetries in singularity-free nonlinear σ models and their disordered phases</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, C. Zhu, A. Beaudry, and X.-G. Wen</span>
+<span class="pub-venue">Phys. Rev. B 110, 195149 (2024)</span>
+<span class="pub-year">[arXiv:2310.08554]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2310.08554" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.195149" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="emergent generalized symmetries in ordered phases and applications to quantum disordering s. d. pace scipost phys. 17 (2024) 080 2308.05730">
+<div class="pub-head">
+<span class="pub-num">[9]</span>
+<span class="pub-title">Emergent generalized symmetries in ordered phases and applications to quantum disordering</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace</span>
+<span class="pub-venue">SciPost Phys. 17, 080 (2024)</span>
+<span class="pub-year">[arXiv:2308.05730]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2308.05730" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://scipost.org/SciPostPhys.17.3.080" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="exact emergent higher-form symmetries in bosonic lattice models s. d. pace and x.-g. wen phys. rev. b 108 (2023) 195147 2301.05261">
+<div class="pub-head">
+<span class="pub-num">[8]</span>
+<span class="pub-title">Exact emergent higher-form symmetries in bosonic lattice models</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace and X.-G. Wen</span>
+<span class="pub-venue">Phys. Rev. B 108, 195147 (2023)</span>
+<span class="pub-year">[arXiv:2301.05261]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2301.05261" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.195147" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="aspects of zn rank-2 gauge theory in (2 + 1) dimensions: construction schemes, holonomies, and sublattice one-form symmetries y.-t. oh, s. d. pace, j. h. han, y. you, and h.-y. lee phys. rev. b 107 (2023) 155151 2301.04706">
+<div class="pub-head">
+<span class="pub-num">[7]</span>
+<span class="pub-title">Aspects of &Zopf;<sub>N</sub> rank-2 gauge theory in (2 + 1) dimensions: Construction schemes, holonomies, and sublattice one-form symmetries</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">Y.-T. Oh, S. D. Pace, J. H. Han, Y. You, and H.-Y. Lee</span>
+<span class="pub-venue">Phys. Rev. B 107, 155151 (2023)</span>
+<span class="pub-year">[arXiv:2301.04706]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2301.04706" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.155151" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="emergent higher-symmetry protected topological orders in the confined phase of u(1) gauge theory s. d. pace and x.-g. wen phys. rev. b 107 (2023) 075112 2207.03544">
+<div class="pub-head">
+<span class="pub-num">[6]</span>
+<span class="pub-title">Emergent higher-symmetry protected topological orders in the confined phase of U(1) gauge theory</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace and X.-G. Wen</span>
+<span class="pub-venue">Phys. Rev. B 107, 075112 (2023)</span>
+<span class="pub-year">[arXiv:2207.03544]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2207.03544" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.075112" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="position-dependent excitations and uv/ir mixing in the zn rank-2 toric code and its low-energy effective field theory s. d. pace and x.-g. wen phys. rev. b 106 (2022) 045145 2204.07111">
+<div class="pub-head">
+<span class="pub-num">[5]</span>
+<span class="pub-title">Position-dependent excitations and UV/IR mixing in the &Zopf;<sub>N</sub> rank-2 toric code and its low-energy effective field theory</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace and X.-G. Wen</span>
+<span class="pub-venue">Phys. Rev. B 106, 045145 (2022)</span>
+<span class="pub-year">[arXiv:2204.07111]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2204.07111" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.045145" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="dynamical axions in u(1) quantum spin liquids s. d. pace, c. castelnovo, and c. r. laumann phys. rev. lett. 130 (2023) 076701 2109.06890">
+<div class="pub-head">
+<span class="pub-num">[4]</span>
+<span class="pub-title">Dynamical Axions in U(1) Quantum Spin Liquids</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, C. Castelnovo, and C. R. Laumann</span>
+<span class="pub-venue">Phys. Rev. Lett. 130, 076701 (2023)</span>
+<span class="pub-year">[arXiv:2109.06890]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2109.06890" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.076701" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="emergent fine structure constant of quantum spin ice is large s. d. pace, s. c. morampudi, r. moessner, and c. r. laumann phys. rev. lett. 127 (2021) 117205 2009.04499">
+<div class="pub-head">
+<span class="pub-num">[3]</span>
+<span class="pub-title">Emergent Fine Structure Constant of Quantum Spin Ice Is Large</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, S. C. Morampudi, R. Moessner, and C. R. Laumann</span>
+<span class="pub-venue">Phys. Rev. Lett. 127, 117205 (2021)</span>
+<span class="pub-year">[arXiv:2009.04499]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/2009.04499" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.117205" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="the β fermi-pasta-ulam-tsingou recurrence problem s. d. pace, k. a. reiss, and d. k. campbell chaos 29 (2019) 113107 1908.00564">
+<div class="pub-head">
+<span class="pub-num">[2]</span>
+<span class="pub-title">The β Fermi-Pasta-Ulam-Tsingou Recurrence Problem</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace, K. A. Reiss, and D. K. Campbell</span>
+<span class="pub-venue">Chaos 29, 113107 (2019)</span>
+<span class="pub-year">[arXiv:1908.00564]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/1908.00564" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://aip.scitation.org/doi/abs/10.1063/1.5122972" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li><li class="pub-item" data-search="behavior and breakdown of higher-order fermi-pasta-ulam-tsingou recurrences s. d. pace and d. k. campbell chaos 29 (2019) 023132 1811.00663">
+<div class="pub-head">
+<span class="pub-num">[1]</span>
+<span class="pub-title">Behavior and breakdown of higher-order Fermi-Pasta-Ulam-Tsingou recurrences</span>
+</div>
+<div class="pub-meta">
+<span class="pub-authors">S. D. Pace and D. K. Campbell</span>
+<span class="pub-venue">Chaos 29, 023132 (2019)</span>
+<span class="pub-year">[arXiv:1811.00663]</span>
+</div>
+<div class="pub-links"><a class="chip" href="https://arxiv.org/abs/1811.00663" rel="noopener noreferrer" target="_blank">arXiv</a><a class="chip" href="https://aip.scitation.org/doi/abs/10.1063/1.5079659" rel="noopener noreferrer" target="_blank">Journal</a></div>
+</li></ol>
+<button aria-controls="pubList" aria-expanded="false" class="chip show-toggle-btn" hidden="" id="pubToggleBtn" type="button">
+  Show more papers
+</button>
+</div>
+</section>
+<section id="talks">
+<div class="section-head">
+<h2>Invited talks</h2>
+</div>
+<div class="card" style="padding:18px;">
 
+<ul class="talk-list" id="talkList"><li class="talk-item" data-search="oxford none nov ’25 notes">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">University of Oxford</span>
+</div>
+<div class="talk-when">Nov ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/OxfordNov25.pdf" rel="noopener noreferrer" target="_blank">Notes</a></div>
+</li><li class="talk-item" data-search="simons center for geometry and physics none oct ’25 notes recording">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Simons Center for Geometry and Physics</span>
+</div>
+<div class="talk-when">Oct ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/StonyBrookOct2025.pdf" rel="noopener noreferrer" target="_blank">Notes</a><a class="chip" href="https://scgp.stonybrook.edu/video/video.php?id=7251" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="cu boulder ctqm theory colloquium none sept ’25 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">CU Boulder CTQM Theory Colloquium</span>
+</div>
+<div class="talk-when">Sept ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/BoulderSept25.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li><li class="talk-item" data-search="oist tsvp symposium: aspects of generalized symmetries none june ’25 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">OIST TSVP Symposium: Aspects of Generalized Symmetries</span>
+</div>
+<div class="talk-when">June ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/OIST2June25.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li><li class="talk-item" data-search="oist thematic program: generalized symmetries in quantum matter none june ’25 pre-talk notes main talk slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">OIST Thematic Program: Generalized Symmetries in Quantum Matter</span>
+</div>
+<div class="talk-when">June ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/OkinawaPedagogicalTalk.pdf" rel="noopener noreferrer" target="_blank">Pre-talk notes</a><a class="chip" href="https://salpace.github.io/OIST1June25.pdf" rel="noopener noreferrer" target="_blank">Main talk slides</a></div>
+</li><li class="talk-item" data-search="georgia tech none may ’25 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Georgia Tech</span>
+</div>
+<div class="talk-when">May ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/GAtechSeminarMay25.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li><li class="talk-item" data-search="kitp program: generalized symmetries in quantum field theory: high energy physics, condensed matter, and quantum gravity apr ’25 slides recording">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">KITP Program: Generalized Symmetries in Quantum Field Theory: High Energy Physics, Condensed Matter, and Quantum Gravity</span>
+</div>
+<div class="talk-when">Apr ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/KITPApril25.pdf" rel="noopener noreferrer" target="_blank">Slides</a><a class="chip" href="https://online.kitp.ucsb.edu/online/gensym25/pace/" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="ucla none feb ’25 pre-talk notes main talk slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">UCLA</span>
+</div>
+<div class="talk-when">Feb ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/UCLApretalk.pdf" rel="noopener noreferrer" target="_blank">Pre-talk notes</a><a class="chip" href="https://salpace.github.io/UCLAFeb25.pdf" rel="noopener noreferrer" target="_blank">Main talk slides</a></div>
+</li><li class="talk-item" data-search="symmetry seminar none feb ’25 slides recording">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Symmetry Seminar</span>
+</div>
+<div class="talk-when">Feb ’25</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/SymSeminar2025.pdf" rel="noopener noreferrer" target="_blank">Slides</a><a class="chip" href="https://youtu.be/ZHEdOpPED_I?si=yLmw4e3hwynvO3zC" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="ibs pcs workshop: effective field theory beyond ordinary symmetries none dec ’24 ">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">IBS PCS Workshop: Effective Field Theory Beyond Ordinary Symmetries</span>
+</div>
+<div class="talk-when">Dec ’24</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/IBSDec2024.pdf" rel="noopener noreferrer" target="_blank">Slides</a><a class="chip" href="https://youtu.be/oQqqG58kCpk?si=4ZouX68nBTXJEQc2" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="perimeter institute for theoretical physics none nov ’24 slides recording slides recording">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Perimeter Institute for Theoretical Physics</span>
+</div>
+<div class="talk-when">Nov ’24</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/PINov2024.pdf" rel="noopener noreferrer" target="_blank">Slides</a><a class="chip" href="https://pirsa.org/24110081" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="ohio state university none oct ’24 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Ohio State University</span>
+</div>
+<div class="talk-when">Oct ’24</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/OSUOct2024.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li><li class="talk-item" data-search="harvard none oct ’24 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Harvard</span>
+</div>
+<div class="talk-when">Oct ’24</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/kidsSeminarOct2024.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li><li class="talk-item" data-search="scgp workshop: applications of generalized symmetries and topological defects to quantum matter sept ’24 slides recording">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">SCGP Workshop: Applications of Generalized Symmetries and Topological Defects to Quantum Matter</span>
+</div>
+<div class="talk-when">Sept ’24</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/SimonsCenterSep2024.pdf" rel="noopener noreferrer" target="_blank">Slides</a><a class="chip" href="https://scgp.stonybrook.edu/video_portal/video.php?id=6693" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="boston university none may ’24 notes">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Boston University</span>
+</div>
+<div class="talk-when">May ’24</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/BUMay2024.pdf" rel="noopener noreferrer" target="_blank">Notes</a></div>
+</li><li class="talk-item" data-search="symmetry seminar none sept ’23 slides recording">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Symmetry Seminar</span>
+</div>
+<div class="talk-when">Sept ’23</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/symmetrySeminar.pdf" rel="noopener noreferrer" target="_blank">Slides</a><a class="chip" href="https://youtu.be/2B2ohngptOM?si=P3CaUa-eTZLlfna2" rel="noopener noreferrer" target="_blank">Recording</a></div>
+</li><li class="talk-item" data-search="boston university none june ’22 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Boston University</span>
+</div>
+<div class="talk-when">June ’22</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/buCMT2022.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li><li class="talk-item" data-search="max planck institute for the physics of complex systems none nov ’20 slides">
+<div class="talk-main">
+<div class="talk-where">
+<span class="talk-host">Max Planck Institute for the Physics of Complex Systems</span>
+</div>
+<div class="talk-when">Nov ’20</div>
+</div>
+<div class="talk-links"><a class="chip" href="https://salpace.github.io/mpSeminar.pdf" rel="noopener noreferrer" target="_blank">Slides</a></div>
+</li></ul><button aria-controls="talks" aria-expanded="false" class="chip show-toggle-btn" hidden="" id="talkToggleBtn" type="button">
+  Show more talks
+</button>
+</div>
+</section>
+</div>
+</main>
+<script src="assets/script.js"></script>
+<script>
+  // Wire the second copy button to the same handler, without duplicating code in script.js.
+  const b2 = document.getElementById('copyEmailBtn2');
+  const b1 = document.getElementById('copyEmailBtn');
+  if (b2 && b1) {
+    b2.addEventListener('click', () => b1.click());
+  }
 
+  (function () {
+    const MAX_VISIBLE = 5;
+    const COLLAPSED_CLASS = 'js-collapsed';
+
+    function isFiltering(input) {
+      return !!(input && input.value.trim() !== '');
+    }
+
+    function setButtonState(btn, expanded, labels) {
+      if (!btn) return;
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.textContent = expanded ? labels.less : labels.more;
+    }
+
+    function scrollToAnchor(selector) {
+      if (!selector) return;
+      const target = document.querySelector(selector);
+      if (!target) return;
+
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const behavior = reducedMotion ? 'auto' : 'smooth';
+
+      // Respect scroll-margin-top (used to offset the sticky header).
+      const m = parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
+      const y = (target.getBoundingClientRect().top + (window.pageYOffset || window.scrollY || 0)) - m;
+
+      window.scrollTo({ top: y, behavior });
+
+      // Match top-nav anchor behavior: update the hash without adding a history entry.
+      if (selector.startsWith('#')) {
+        try { history.replaceState(null, '', selector); } catch (e) {}
+      }
+    }
+
+    /**
+     * Generic "Show more / Show less" controller that:
+     * - Collapses to first MAX_VISIBLE items by default.
+     * - Expands to show all items when toggled.
+     * - Temporarily expands (and hides the toggle) when the filter input is non-empty,
+     *   so searching can operate over the full list.
+     */
+    function setupToggle({ items, button, filterInput, labels, afterUpdate, scrollTarget }) {
+      if (!items || items.length === 0 || !button) return;
+
+      let userExpanded = false;
+
+      function apply() {
+        // Nothing to toggle if the list is short.
+        if (items.length <= MAX_VISIBLE) {
+          items.forEach(el => el.classList.remove(COLLAPSED_CLASS));
+          button.hidden = true;
+          if (afterUpdate) afterUpdate();
+          return;
+        }
+
+        const filtering = isFiltering(filterInput);
+
+        // While filtering, always expand so search shows all matches.
+        if (filtering) {
+          items.forEach(el => el.classList.remove(COLLAPSED_CLASS));
+          button.hidden = true;
+          if (afterUpdate) afterUpdate();
+          return;
+        }
+
+        // Not filtering: show the toggle button and apply the user state.
+        button.hidden = false;
+
+        if (userExpanded) {
+          items.forEach(el => el.classList.remove(COLLAPSED_CLASS));
+          setButtonState(button, true, labels);
+        } else {
+          items.forEach((el, i) => {
+            if (i < MAX_VISIBLE) el.classList.remove(COLLAPSED_CLASS);
+            else el.classList.add(COLLAPSED_CLASS);
+          });
+          setButtonState(button, false, labels);
+        }
+
+        if (afterUpdate) afterUpdate();
+      }
+
+      button.addEventListener('click', () => {
+        const nextExpanded = !userExpanded;
+        userExpanded = nextExpanded;
+        apply();
+
+        // If we collapsed, jump back to the top of the section (matches the top-nav anchor).
+        if (!nextExpanded) {
+          scrollToAnchor(scrollTarget);
+
+          // Keep focus on the toggle without forcing an extra scroll.
+          try { button.focus({ preventScroll: true }); } catch (e) {}
+        }
+      });
+
+      if (filterInput) {
+        filterInput.addEventListener('input', apply);
+      }
+
+      // Initial state on load.
+      apply();
+    }
+
+    // --- Papers ---
+    const pubList = document.getElementById('pubList') || document.querySelector('.pub-list');
+    const pubItems = pubList ? Array.from(pubList.querySelectorAll('.pub-item')) : [];
+    const pubBtn = document.getElementById('pubToggleBtn');
+    const pubFilter = document.getElementById('pubFilter');
+
+    if (pubBtn) {
+      setupToggle({
+        items: pubItems,
+        button: pubBtn,
+        filterInput: pubFilter,
+        labels: { more: 'Show more papers', less: 'Show less papers' },
+        scrollTarget: '#publications'
+      });
+    }
+
+    // --- Talks ---
+    const talkItems = Array.from(document.querySelectorAll('#talks .talk-item'));
+    const talkBtn = document.getElementById('talkToggleBtn');
+    const talkFilter = document.getElementById('talkFilter');
+    const yearHeadings = Array.from(document.querySelectorAll('#talks .year-heading'));
+
+    function isVisible(el) {
+      if (!el) return false;
+      if (el.classList.contains(COLLAPSED_CLASS)) return false;
+      if (el.hidden) return false;
+
+      // Catch other hiding mechanisms (e.g., styles applied by your existing filter script).
+      const s = window.getComputedStyle(el);
+      return s.display !== 'none' && s.visibility !== 'hidden';
+    }
+
+    function getLastVisible(items) {
+      for (let i = items.length - 1; i >= 0; i--) {
+        if (isVisible(items[i])) return items[i];
+      }
+      return null;
+    }
+
+    function syncTalkToggleSpacing() {
+      // Keep spacing controlled purely by CSS (.show-toggle-btn) and
+      // the .is-last-visible trimming rules to avoid overlap/clipping.
+      talkBtn.style.marginTop = '';
+    }
+
+    function updateTalkGroups() {
+      // Hide year headings AND their associated lists if they contain no visible talks.
+      yearHeadings.forEach(h => {
+        const list = h.nextElementSibling;
+        if (!list || !list.classList.contains('talk-list')) return;
+
+        const anyVisible = Array.from(list.querySelectorAll('.talk-item')).some(isVisible);
+        h.hidden = !anyVisible;
+        list.hidden = !anyVisible;
+      });
+
+      // Mark the LAST visible talk ITEM and its parent LIST so spacing to the toggle is consistent.
+      const allLists = Array.from(document.querySelectorAll('#talks .talk-list'));
+      allLists.forEach(l => l.classList.remove('is-last-visible'));
+      talkItems.forEach(li => li.classList.remove('is-last-visible-item'));
+
+      const lastVisibleTalk = getLastVisible(talkItems);
+      if (lastVisibleTalk) {
+        lastVisibleTalk.classList.add('is-last-visible-item');
+
+        const parentList = lastVisibleTalk.closest('.talk-list');
+        if (parentList) parentList.classList.add('is-last-visible');
+      }
+
+      syncTalkToggleSpacing();
+    }
+
+    if (talkBtn) {
+      setupToggle({
+        items: talkItems,
+        button: talkBtn,
+        filterInput: talkFilter,
+        labels: { more: 'Show more talks', less: 'Show less talks' },
+        scrollTarget: '#talks',
+        afterUpdate: updateTalkGroups
+      });
+    }
+
+    // Keep the talk toggle gap matched to the papers toggle gap after layout changes.
+    if (pubBtn) {
+      pubBtn.addEventListener('click', () => {
+        requestAnimationFrame(syncTalkToggleSpacing);
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      requestAnimationFrame(syncTalkToggleSpacing);
+    });
+
+    window.addEventListener('load', () => {
+      requestAnimationFrame(syncTalkToggleSpacing);
+    });
+  })();
+</script>
 </body>
 </html>
