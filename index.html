@@ -104,6 +104,7 @@ h3 { color: var(--ink); }
 .talk-date { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 5px; line-height: 1.5; white-space: nowrap; }
 .talk-host { font-size: 19px; }
 .talk-links { margin-top: 6px; }
+.teaching-note { padding-block: 3px; color: var(--muted); }
 .site-footer { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); padding-block: 28px 43px; font-size: 13px; color: var(--muted); }
 .site-footer p span { margin-inline: 7px; }
 .site-footer a { text-decoration: none; color: var(--muted); }
@@ -159,7 +160,7 @@ h3 { color: var(--ink); }
   .pub-title { font-size: 19px; line-height: 1.55; }
   .pub-authors { font-size: 15px; }
   .item-links { gap: 5px 18px; font-size: 14px; }
-  .item-links a { padding-block: 4px; }
+  .item-links a, .teaching-note { padding-block: 4px; }
   .archive { margin-top: 17px; }
   .talk-item { grid-template-columns: 77px minmax(0, 1fr); gap: 15px; }
   .talk-host { font-size: 18px; }
@@ -232,6 +233,7 @@ h3 { color: var(--ink); }
         <a href="#about" aria-current="location">About</a>
         <a href="#publications">Papers</a>
         <a href="#talks">Talks</a>
+        <a href="#teaching">Teaching</a>
         <a href="mailto:sdpace4@gmail.com">Say hello <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
@@ -792,6 +794,41 @@ h3 { color: var(--ink); }
           </ul>
           <button class="archive-close" type="button" data-close-archive="talk-archive" hidden>Show recent talks only <span aria-hidden="true">↑</span></button>
         </details>
+      </div>
+    </section>
+
+    <!-- TEACHING: selected schools and workshops from the CV. -->
+    <section class="index-section" id="teaching" aria-labelledby="teaching-heading">
+      <div class="section-label">
+        <h2 id="teaching-heading">Teaching</h2>
+        <p class="section-caption">Lecture notes<br class="desktop-break"> and recordings.</p>
+      </div>
+      <div class="section-content">
+        <ul class="talk-list" id="teachingList" role="list" aria-label="Teaching at schools and workshops">
+          <li class="talk-item">
+            <time class="talk-date" datetime="2026-10">Oct 2026</time>
+            <div class="talk-content">
+              <h3 class="talk-host">2026 Arnold Sommerfeld School on Generalized Symmetries</h3>
+              <div class="item-links talk-links">
+                <a href="https://www.theorie.physik.uni-muenchen.de/activities/schools/asc_school_2026/index.html" target="_blank" rel="noopener noreferrer">School website<span class="sr-only"> — 2026 Arnold Sommerfeld School on Generalized Symmetries (opens in a new tab)</span></a>
+                <a href="SommerfeldSymmetrySchoolNotes.pdf" target="_blank" rel="noopener noreferrer">Lecture notes<span class="sr-only"> — 2026 Arnold Sommerfeld School on Generalized Symmetries (PDF, opens in a new tab)</span></a>
+                <span class="teaching-note">Lecture records to appear</span>
+              </div>
+            </div>
+          </li>
+          <li class="talk-item">
+            <time class="talk-date" datetime="2025-09">Sept 2025</time>
+            <div class="talk-content">
+              <h3 class="talk-host">Isaac Newton Institute for Mathematical Sciences School on The Physics and Mathematics of Boundaries, Impurities, and Defects</h3>
+              <div class="item-links talk-links">
+                <a href="https://www.newton.ac.uk/event/BIDW01/" target="_blank" rel="noopener noreferrer">School website<span class="sr-only"> — Isaac Newton Institute for Mathematical Sciences School on The Physics and Mathematics of Boundaries, Impurities, and Defects (opens in a new tab)</span></a>
+                <a href="CambridgeLectures.pdf" target="_blank" rel="noopener noreferrer">Lecture notes<span class="sr-only"> — Isaac Newton Institute for Mathematical Sciences School on The Physics and Mathematics of Boundaries, Impurities, and Defects (PDF, opens in a new tab)</span></a>
+                <a href="https://youtu.be/q1U2hAHmWec?si=uH-xuCeQ5eZ7nYMc" target="_blank" rel="noopener noreferrer">Lecture 1 recording<span class="sr-only"> — Isaac Newton Institute for Mathematical Sciences School on The Physics and Mathematics of Boundaries, Impurities, and Defects (opens in a new tab)</span></a>
+                <a href="https://youtu.be/hDgW2y9xDBQ?si=5-fV8zGugyl5EQbS" target="_blank" rel="noopener noreferrer">Lecture 2 recording<span class="sr-only"> — Isaac Newton Institute for Mathematical Sciences School on The Physics and Mathematics of Boundaries, Impurities, and Defects (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
