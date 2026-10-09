@@ -17,9 +17,9 @@
   <meta property="og:image:height" content="900">
   <meta property="og:image:alt" content="Portrait of Sal Pace.">
   <link rel="canonical" href="https://salpace.github.io/">
-  <!-- Computer Modern, using the public web-font stylesheet. -->
+  <!-- Computer Modern, pinned to a fixed commit so typography stays predictable. -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/font/Serif/cmun-serif.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@333f55ec19733c28cdc43567ecf72eafd6b0af61/font/Serif/cmun-serif.css">
   <style>
 /* Sal Pace — a quiet, warm, single-page academic website.
    Computer Modern typography; no JavaScript libraries or build tools. */
@@ -273,8 +273,9 @@ h3 { color: var(--ink); }
       </div>
     </section>
 
-    <!-- PAPERS: the first five entries are shown immediately. The full archive
-         is ordinary HTML inside a native details element; no JavaScript needed. -->
+    <!-- PAPERS: keep the five most recent entries here, newest first. When adding
+         a paper, move the sixth entry to the top of the archive and retain numbering.
+         The archive is ordinary HTML inside a native details element; no JavaScript needed. -->
     <section class="index-section" id="publications" aria-labelledby="papers-heading">
       <div class="section-label">
         <h2 id="papers-heading">Papers</h2>
@@ -534,8 +535,8 @@ h3 { color: var(--ink); }
       </div>
     </section>
 
-    <!-- TALKS: dates, venues, and every resource link are retained from the
-         original site. Add newer talks at the top of this list. -->
+    <!-- TALKS: keep the five most recent entries here, newest first.
+         When adding a talk, move the sixth entry to the top of the archive. -->
     <section class="index-section" id="talks" aria-labelledby="talks-heading">
       <div class="section-label">
         <h2 id="talks-heading">Invited talks</h2>
@@ -543,6 +544,16 @@ h3 { color: var(--ink); }
       </div>
       <div class="section-content">
         <ul class="talk-list" id="talkList" role="list" aria-label="Recent invited talks">
+          <li class="talk-item">
+            <time class="talk-date" datetime="2026-09">Sept 2026</time>
+            <div class="talk-content">
+              <h3 class="talk-host">Institute for Advanced Study</h3>
+              <div class="item-links talk-links">
+              <a href="IASseminar26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Institute for Advanced Study, September 2026 (PDF, opens in a new tab)</span></a>
+              <a href="https://youtu.be/PiZNQJsUbGs?si=7VKjx_2qQr22bYGp" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — Institute for Advanced Study, September 2026 (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </li>
           <li class="talk-item">
             <time class="talk-date" datetime="2026-08">Aug 2026</time>
             <div class="talk-content">
@@ -581,6 +592,14 @@ h3 { color: var(--ink); }
               </div>
             </div>
           </li>
+        </ul>
+        <details class="archive" id="talk-archive">
+          <summary>
+            <span class="when-closed">View all talks</span>
+            <span class="when-open">Show recent talks only</span>
+            <span class="disclosure-icon" aria-hidden="true">↓</span>
+          </summary>
+          <ul class="talk-list archive-list" role="list" aria-label="Earlier invited talks">
           <li class="talk-item">
             <time class="talk-date" datetime="2026-05">May 2026</time>
             <div class="talk-content">
@@ -590,14 +609,6 @@ h3 { color: var(--ink); }
               </div>
             </div>
           </li>
-        </ul>
-        <details class="archive" id="talk-archive">
-          <summary>
-            <span class="when-closed">View all talks</span>
-            <span class="when-open">Show recent talks only</span>
-            <span class="disclosure-icon" aria-hidden="true">↓</span>
-          </summary>
-          <ul class="talk-list archive-list" role="list" aria-label="Earlier invited talks">
           <li class="talk-item">
             <time class="talk-date" datetime="2026-04">Apr 2026</time>
             <div class="talk-content">
