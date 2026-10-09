@@ -30,9 +30,11 @@
   --line: #dddfd6;
   --serif: "Computer Modern Serif", "CMU Serif", "Latin Modern Roman", Georgia, serif;
   --shell: 1128px;
+  --header-height: 78px;
+  --anchor-gap: 30px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + var(--anchor-gap)); }
 body { margin: 0; background: var(--paper); color: var(--body); font-family: var(--serif); font-size: 18px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 ::selection { background: #dbe3d4; color: var(--ink); }
 a { color: var(--accent); text-decoration-color: #a5b2a1; text-underline-offset: 4px; text-decoration-thickness: 1px; }
@@ -134,7 +136,7 @@ h3 { color: var(--ink); }
 /* The portrait sits beside the name on tablets and phones, keeping the
    introduction personal without pushing the research statement far down. */
 @media (max-width: 879px) {
-  html { scroll-padding-top: 102px; }
+  :root { --header-height: 70px; --anchor-gap: 32px; }
   .shell { width: calc(100% - 48px); }
   .header-inner { min-height: 70px; gap: 20px; }
   .nav { column-gap: 21px; }
@@ -171,7 +173,7 @@ h3 { color: var(--ink); }
   .header-inner { min-height: 66px; padding-block: 8px; }
   .nav { justify-content: flex-start; column-gap: 20px; row-gap: 0; }
   .nav a { min-height: 44px; font-size: 14px; }
-  html { scroll-padding-top: 90px; }
+  :root { --header-height: 66px; --anchor-gap: 24px; }
   .about-section { grid-template-columns: minmax(0, 1fr) 124px; column-gap: 20px; }
   .hero-copy h1 { font-size: clamp(36px, 11.3vw, 54px); letter-spacing: -1.2px; margin-top: 0; margin-bottom: 10px; }
   .position { font-size: 13px; line-height: 1.75; max-width: 180px; }
@@ -255,7 +257,7 @@ h3 { color: var(--ink); }
           <a href="mailto:sdpace4@gmail.com">Email <span aria-hidden="true">↗</span></a>
           <a href="https://scholar.google.com/citations?user=pAwQrwEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
           <a href="https://inspirehep.net/authors/1911988?ui-citation-summary=true&amp;hl=en" target="_blank" rel="noopener noreferrer">INSPIRE <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
-          <a class="cv-button" href="https://salpace.github.io/Salvatore_Pace_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV (PDF, opens in a new tab)">CV <span aria-hidden="true">↗</span></a>
+          <a class="cv-button" href="Salvatore_Pace_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV (PDF, opens in a new tab)">CV <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="hero-aside">
@@ -543,7 +545,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">IQIS Workshop: New Developments in Lattice Fermions</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/PaceSyracuse26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — IQIS Workshop: New Developments in Lattice Fermions (opens in a new tab)</span></a>
+              <a href="PaceSyracuse26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — IQIS Workshop: New Developments in Lattice Fermions (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -552,7 +554,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Symmetries 26</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/Pace_Symmetry26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Symmetries 26 (opens in a new tab)</span></a>
+              <a href="Pace_Symmetry26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Symmetries 26 (opens in a new tab)</span></a>
               <a href="https://youtu.be/993h8xGLivM?si=XCpsFQbwSanuYTCU&amp;t=5465" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — Symmetries 26 (opens in a new tab)</span></a>
               </div>
             </div>
@@ -562,7 +564,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">GGI Workshop: Defects and Extended Excitations in Quantum Field Theory, Quantum Matter and Statistical Models</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/PaceGGI26.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — GGI Workshop: Defects and Extended Excitations in Quantum Field Theory, Quantum Matter and Statistical Models (opens in a new tab)</span></a>
+              <a href="PaceGGI26.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — GGI Workshop: Defects and Extended Excitations in Quantum Field Theory, Quantum Matter and Statistical Models (opens in a new tab)</span></a>
               <a href="https://www.youtube.com/watch?v=SknDU4zS2c0" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — GGI Workshop: Defects and Extended Excitations in Quantum Field Theory, Quantum Matter and Statistical Models (opens in a new tab)</span></a>
               </div>
             </div>
@@ -572,7 +574,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Simons Collaboration Workshop on Confinement</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/MITConfinementTalk.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Simons Collaboration Workshop on Confinement (opens in a new tab)</span></a>
+              <a href="MITConfinementTalk.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Simons Collaboration Workshop on Confinement (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -581,7 +583,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">University of Minnesota (Colloquium)</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/UMN_col.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — University of Minnesota (Colloquium) (opens in a new tab)</span></a>
+              <a href="UMN_col.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — University of Minnesota (Colloquium) (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -598,7 +600,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">University of Minnesota (Seminar)</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/UMN_May26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — University of Minnesota (Seminar) (opens in a new tab)</span></a>
+              <a href="UMN_May26.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — University of Minnesota (Seminar) (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -607,7 +609,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Aspen Conference: Generalized Symmetries and Defects in QFT and Gravity</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/PaceAspen26.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Aspen Conference: Generalized Symmetries and Defects in QFT and Gravity (opens in a new tab)</span></a>
+              <a href="PaceAspen26.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Aspen Conference: Generalized Symmetries and Defects in QFT and Gravity (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -616,7 +618,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Institute for Advanced Study</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/IASJan26.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Institute for Advanced Study (opens in a new tab)</span></a>
+              <a href="IASJan26.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Institute for Advanced Study (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -625,7 +627,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">University of Oxford</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/OxfordNov25.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — University of Oxford (opens in a new tab)</span></a>
+              <a href="OxfordNov25.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — University of Oxford (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -634,7 +636,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Simons Center for Geometry and Physics</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/StonyBrookOct2025.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Simons Center for Geometry and Physics (opens in a new tab)</span></a>
+              <a href="StonyBrookOct2025.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Simons Center for Geometry and Physics (opens in a new tab)</span></a>
               <a href="https://scgp.stonybrook.edu/video/video.php?id=7251" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — Simons Center for Geometry and Physics (opens in a new tab)</span></a>
               </div>
             </div>
@@ -644,7 +646,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">CU Boulder CTQM Theory Colloquium</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/BoulderSept25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — CU Boulder CTQM Theory Colloquium (opens in a new tab)</span></a>
+              <a href="BoulderSept25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — CU Boulder CTQM Theory Colloquium (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -653,7 +655,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">OIST TSVP Symposium: Aspects of Generalized Symmetries</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/OIST2June25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — OIST TSVP Symposium: Aspects of Generalized Symmetries (opens in a new tab)</span></a>
+              <a href="OIST2June25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — OIST TSVP Symposium: Aspects of Generalized Symmetries (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -662,8 +664,8 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">OIST Thematic Program: Generalized Symmetries in Quantum Matter</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/OkinawaPedagogicalTalk.pdf" target="_blank" rel="noopener noreferrer">Pre-talk notes<span class="sr-only"> — OIST Thematic Program: Generalized Symmetries in Quantum Matter (opens in a new tab)</span></a>
-              <a href="https://salpace.github.io/OIST1June25.pdf" target="_blank" rel="noopener noreferrer">Main talk slides<span class="sr-only"> — OIST Thematic Program: Generalized Symmetries in Quantum Matter (opens in a new tab)</span></a>
+              <a href="OkinawaPedagogicalTalk.pdf" target="_blank" rel="noopener noreferrer">Pre-talk notes<span class="sr-only"> — OIST Thematic Program: Generalized Symmetries in Quantum Matter (opens in a new tab)</span></a>
+              <a href="OIST1June25.pdf" target="_blank" rel="noopener noreferrer">Main talk slides<span class="sr-only"> — OIST Thematic Program: Generalized Symmetries in Quantum Matter (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -672,7 +674,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Georgia Tech</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/GAtechSeminarMay25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Georgia Tech (opens in a new tab)</span></a>
+              <a href="GAtechSeminarMay25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Georgia Tech (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -681,7 +683,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">KITP Program: Generalized Symmetries in Quantum Field Theory: High Energy Physics, Condensed Matter, and Quantum Gravity</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/KITPApril25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — KITP Program: Generalized Symmetries in Quantum Field Theory: High Energy Physics, Condensed Matter, and Quantum Gravity (opens in a new tab)</span></a>
+              <a href="KITPApril25.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — KITP Program: Generalized Symmetries in Quantum Field Theory: High Energy Physics, Condensed Matter, and Quantum Gravity (opens in a new tab)</span></a>
               <a href="https://online.kitp.ucsb.edu/online/gensym25/pace/" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — KITP Program: Generalized Symmetries in Quantum Field Theory: High Energy Physics, Condensed Matter, and Quantum Gravity (opens in a new tab)</span></a>
               </div>
             </div>
@@ -691,8 +693,8 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">UCLA</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/UCLApretalk.pdf" target="_blank" rel="noopener noreferrer">Pre-talk notes<span class="sr-only"> — UCLA (opens in a new tab)</span></a>
-              <a href="https://salpace.github.io/UCLAFeb25.pdf" target="_blank" rel="noopener noreferrer">Main talk slides<span class="sr-only"> — UCLA (opens in a new tab)</span></a>
+              <a href="UCLApretalk.pdf" target="_blank" rel="noopener noreferrer">Pre-talk notes<span class="sr-only"> — UCLA (opens in a new tab)</span></a>
+              <a href="UCLAFeb25.pdf" target="_blank" rel="noopener noreferrer">Main talk slides<span class="sr-only"> — UCLA (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -701,7 +703,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Symmetry Seminar</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/SymSeminar2025.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Symmetry Seminar (opens in a new tab)</span></a>
+              <a href="SymSeminar2025.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Symmetry Seminar (opens in a new tab)</span></a>
               <a href="https://youtu.be/ZHEdOpPED_I?si=yLmw4e3hwynvO3zC" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — Symmetry Seminar (opens in a new tab)</span></a>
               </div>
             </div>
@@ -711,7 +713,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">IBS PCS Workshop: Effective Field Theory Beyond Ordinary Symmetries</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/IBSDec2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — IBS PCS Workshop: Effective Field Theory Beyond Ordinary Symmetries (opens in a new tab)</span></a>
+              <a href="IBSDec2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — IBS PCS Workshop: Effective Field Theory Beyond Ordinary Symmetries (opens in a new tab)</span></a>
               <a href="https://youtu.be/oQqqG58kCpk?si=4ZouX68nBTXJEQc2" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — IBS PCS Workshop: Effective Field Theory Beyond Ordinary Symmetries (opens in a new tab)</span></a>
               </div>
             </div>
@@ -721,7 +723,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Perimeter Institute for Theoretical Physics</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/PINov2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Perimeter Institute for Theoretical Physics (opens in a new tab)</span></a>
+              <a href="PINov2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Perimeter Institute for Theoretical Physics (opens in a new tab)</span></a>
               <a href="https://pirsa.org/24110081" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — Perimeter Institute for Theoretical Physics (opens in a new tab)</span></a>
               </div>
             </div>
@@ -731,7 +733,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Ohio State University</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/OSUOct2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Ohio State University (opens in a new tab)</span></a>
+              <a href="OSUOct2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Ohio State University (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -740,7 +742,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Harvard</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/kidsSeminarOct2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Harvard (opens in a new tab)</span></a>
+              <a href="kidsSeminarOct2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Harvard (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -749,7 +751,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">SCGP Workshop: Applications of Generalized Symmetries and Topological Defects to Quantum Matter</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/SimonsCenterSep2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — SCGP Workshop: Applications of Generalized Symmetries and Topological Defects to Quantum Matter (opens in a new tab)</span></a>
+              <a href="SimonsCenterSep2024.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — SCGP Workshop: Applications of Generalized Symmetries and Topological Defects to Quantum Matter (opens in a new tab)</span></a>
               <a href="https://scgp.stonybrook.edu/video_portal/video.php?id=6693" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — SCGP Workshop: Applications of Generalized Symmetries and Topological Defects to Quantum Matter (opens in a new tab)</span></a>
               </div>
             </div>
@@ -759,7 +761,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Boston University</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/BUMay2024.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Boston University (opens in a new tab)</span></a>
+              <a href="BUMay2024.pdf" target="_blank" rel="noopener noreferrer">Notes<span class="sr-only"> — Boston University (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -768,7 +770,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Symmetry Seminar</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/symmetrySeminar.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Symmetry Seminar (opens in a new tab)</span></a>
+              <a href="symmetrySeminar.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Symmetry Seminar (opens in a new tab)</span></a>
               <a href="https://youtu.be/2B2ohngptOM?si=P3CaUa-eTZLlfna2" target="_blank" rel="noopener noreferrer">Recording<span class="sr-only"> — Symmetry Seminar (opens in a new tab)</span></a>
               </div>
             </div>
@@ -778,7 +780,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Boston University</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/buCMT2022.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Boston University (opens in a new tab)</span></a>
+              <a href="buCMT2022.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Boston University (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -787,7 +789,7 @@ h3 { color: var(--ink); }
             <div class="talk-content">
               <h3 class="talk-host">Max Planck Institute for the Physics of Complex Systems</h3>
               <div class="item-links talk-links">
-              <a href="https://salpace.github.io/mpSeminar.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Max Planck Institute for the Physics of Complex Systems (opens in a new tab)</span></a>
+              <a href="mpSeminar.pdf" target="_blank" rel="noopener noreferrer">Slides<span class="sr-only"> — Max Planck Institute for the Physics of Complex Systems (opens in a new tab)</span></a>
               </div>
             </div>
           </li>
@@ -812,7 +814,7 @@ h3 { color: var(--ink); }
               <div class="item-links talk-links">
                 <a href="https://www.theorie.physik.uni-muenchen.de/activities/schools/asc_school_2026/index.html" target="_blank" rel="noopener noreferrer">School website<span class="sr-only"> — 2026 Arnold Sommerfeld School on Generalized Symmetries (opens in a new tab)</span></a>
                 <a href="SommerfeldSymmetrySchoolNotes.pdf" target="_blank" rel="noopener noreferrer">Lecture notes<span class="sr-only"> — 2026 Arnold Sommerfeld School on Generalized Symmetries (PDF, opens in a new tab)</span></a>
-                <span class="teaching-note">Lecture records to appear</span>
+                <span class="teaching-note">Lecture recordings to appear</span>
               </div>
             </div>
           </li>
@@ -839,49 +841,6 @@ h3 { color: var(--ink); }
     <a href="#about">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
 
-  <!-- Original, previously commented-out technical research overview.
-       Kept here for reference rather than silently republished.
- <section id="research">
-<div class="section-head">
-<h2>Technical Overview of Research</h2>
-</div>
-<div class="card" style="padding:18px;">
-  <div class="prose" style="margin-top:0px;">
-    <p>
-      My research explores quantum systems, both on the lattice and in the continuum, and their applications to condensed matter and high energy physics. Much of my current work centers on symmetries, anomalies, and their generalizations. I am pursuing these ideas within two closely related directions. 
-      Firstly, I am interested in using symmetry and anomaly-based ideas to classify and characterize phases of quantum matter, including gapped phases—both within and beyond topological phases—as well as gapless phases.
-      Second, is in understanding the structural foundations of quantum lattice systems and quantum field theories, and how these two frameworks are related. This is part of a broader effort to map and compare their respective landscapes of theories. 
-    <p>
-      I investigate research questions through an interdisciplinary lens, drawing on ideas from condensed matter theory, high‑energy theory, quantum information, and mathematics. Some specific problems I am thinking about and am working on are:
-    </p>
-  </div>
-  <div class="lists-2">
-    <div>
-      <h3 style="margin:0 0 6px; font-size:16px;">Currently</h3>
-      <ul class="clean">
-        <li>Anomalies in quantum lattice systems, and their relation to anomalies in quantum field theories</li>
-        <li>Generalized symmetries in >1+1d quantum lattice systems</li>
-        <li>Quantum Cellular Automata 
-        <li>The Symmetry Topological Field Theory (SymTFT)</li>
-      </ul>
-    </div>
-    <div>
-      <h3 style="margin:0 0 6px; font-size:16px;">More broadly</h3>
-      <ul class="clean">
-        <li>Topological phases of matter and topological quantum field theory</li>
-        <li>’t Hooft anomalies, Lieb–Schultz–Mattis theorems, and their relations</li>
-        <li>Generalized symmetries and gauging in quantum lattice models</li>
-        <li>Family anomalies and generalized Thouless pumps in parametrized quantum systems</li>
-        <li>Foliated field theories, tensor gauge theories, and applications to elasticity and quantum melting</li>
-        <li>Quantum spin liquids and frustrated magnets</li>
-        <li>Applications of category and homotopy theory to physics</li>
-        <li>Applications of quantum information theory to quantum many‑body systems</li>
-      </ul>
-    </div>
-  </div>
-</div>
-</section> 
-  -->
 <script>
 /* Small progressive enhancements only: the biography, links, and native
    paper/talk archives also work with JavaScript disabled. */
@@ -918,6 +877,17 @@ h3 { color: var(--ink); }
       window.requestAnimationFrame(updateNavigation);
     }
   };
+  // Keep linked headings clear of the sticky header, even when the nav wraps.
+  const updateHeaderHeight = () => {
+    if (header) document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    queueNavigation();
+  };
+  updateHeaderHeight();
+  if (header && 'ResizeObserver' in window) {
+    new ResizeObserver(updateHeaderHeight).observe(header);
+  } else {
+    window.addEventListener('resize', updateHeaderHeight);
+  }
   window.addEventListener('scroll', queueNavigation, { passive: true });
   window.addEventListener('resize', queueNavigation);
   document.querySelectorAll('details.archive').forEach(archive => archive.addEventListener('toggle', queueNavigation));
